@@ -40,7 +40,7 @@ class CsvCheckerMainWidget(QtGui.QWidget, Ui_CsvChecker):
 
     # 响应函数 -----------------------------------------------------------------------------------
     def btn_clicked(self):
-		self.lineEdit.setText("Hello PyQt!!!");
+        self.lineEdit.setText("Hello PyQt!!!");
 
 
 # --------------------------------------------------------------------------------------------------
