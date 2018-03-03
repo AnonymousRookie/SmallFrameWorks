@@ -1,3 +1,3 @@
 @echo off
-D:\Python27\Lib\site-packages\PyQt4\pyrcc4 stylesheet.qrc -o stylesheet.py
+"D:\ProgramFiles\Python\Python(x86)\python3.4.3\Lib\site-packages\PyQt5\pyrcc5" stylesheet.qrc -o stylesheet.py
 pause

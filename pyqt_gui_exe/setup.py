@@ -10,4 +10,4 @@ py2exe_options = {
     }  
 }
   
-setup(windows=["main.py"], options=py2exe_options, zipfile=None)  
+setup(windows=[{"script":"main.py", "icon_resources": [(1, "FACE.ico")]} ] , options=py2exe_options, zipfile=None)  

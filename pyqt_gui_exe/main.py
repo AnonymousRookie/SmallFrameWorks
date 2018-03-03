@@ -3,17 +3,20 @@
 # -------------------------------------------------------
 import os
 import sys
-from PyQt4.QtGui import *
-from PyQt4.QtCore import *
+from PyQt5.QtGui import *
+from PyQt5.QtCore import *
+from PyQt5.QtWidgets import (QApplication, QCheckBox, QFileDialog, QGridLayout,
+        QHBoxLayout, QLabel, QSizePolicy, QSlider, QSpinBox, QStyle,
+        QToolButton, QVBoxLayout, QWidget)
 
 from ui_designer import *
 import stylesheet
 # -------------------------------------------------------
 
 
-class CsvCheckerMainWidget(QtGui.QWidget, Ui_CsvChecker):
+class SampleMainWidget(QWidget, Ui_Sample):
     def __init__(self, parent=None):
-        super(CsvCheckerMainWidget, self).__init__(parent)
+        super(SampleMainWidget, self).__init__(parent)
         self.setupUi(self)
         # 类成员变量 -------------------------------------------------------------------------------
         
@@ -21,20 +24,16 @@ class CsvCheckerMainWidget(QtGui.QWidget, Ui_CsvChecker):
         self.loadStyleSheet("mystyle")
         # 初始化UI上的显示信息 ---------------------------------------------------------------------
         self.setWindowTitle(u"Hello PyQt")
-        # 连接信号与槽 ---------------------------------------------------------------------------------
-
-
-        self.connect(self.pushButton, QtCore.SIGNAL('clicked()'), self.btn_clicked)
-
+        # 连接信号与槽 -----------------------------------------------------------------------------
+        self.pushButton.clicked.connect(self.btn_clicked)
 
     # 设置样式表 -----------------------------------------------------------------------------------
     def loadStyleSheet(self, sheetName):
-        file = QtCore.QFile(':/qss/%s.qss' % sheetName.lower())
-        file.open(QtCore.QFile.ReadOnly)
-        styleSheet = file.readAll()
-        styleSheet = unicode(styleSheet, encoding='utf8')
-        #print styleSheet
-        self.setStyleSheet(styleSheet)
+        with open(('./qss/%s.qss' % sheetName.lower())) as file:
+            strStyleSheet = file.readlines()
+            strStyleSheet =''.join(strStyleSheet).strip('\n')
+        #print((strStyleSheet))
+        self.setStyleSheet(strStyleSheet)
 
 
 
@@ -45,7 +44,7 @@ class CsvCheckerMainWidget(QtGui.QWidget, Ui_CsvChecker):
 
 # --------------------------------------------------------------------------------------------------
 if __name__=="__main__":
-    app = QtGui.QApplication(sys.argv)
-    widget = CsvCheckerMainWidget()
+    app = QApplication(sys.argv)
+    widget = SampleMainWidget()
     widget.show()
     sys.exit(app.exec_())
