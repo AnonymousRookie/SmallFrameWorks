@@ -29,12 +29,11 @@ class SampleMainWidget(QWidget, Ui_Sample):
 
     # 设置样式表 -----------------------------------------------------------------------------------
     def loadStyleSheet(self, sheetName):
-        with open(('./qss/%s.qss' % sheetName.lower())) as file:
-            strStyleSheet = file.readlines()
-            strStyleSheet =''.join(strStyleSheet).strip('\n')
-        #print((strStyleSheet))
-        self.setStyleSheet(strStyleSheet)
-
+        file = QtCore.QFile(':/qss/%s.qss' % sheetName.lower())
+        file.open(QtCore.QFile.ReadOnly)
+        styleSheet = file.readAll()
+        styleSheet = str(styleSheet, encoding='utf8')
+        self.setStyleSheet(styleSheet)
 
 
     # 响应函数 -----------------------------------------------------------------------------------
