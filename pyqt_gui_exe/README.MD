@@ -41,7 +41,10 @@ tel)] on win32
 pyqt_gui_exe/
 ├── autobuild.bat
 ├── autoclean.bat
-├── FACE.ICO
+├── error_handler.py
+├── frameless_window.py
+├── logger.py
+├── logo.ico
 ├── __init__.py
 ├── main.py
 ├── py2exe.bat
@@ -49,8 +52,9 @@ pyqt_gui_exe/
 ├── qrc2py.bat
 ├── qss
 │   └── mystyle.qss
-├── README
+├── README.MD
 ├── setup.py
+├── shared_obj.py
 ├── stylesheet.qrc
 ├── ui2py.bat
 └── ui_designer.ui

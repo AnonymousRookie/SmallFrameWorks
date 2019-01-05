@@ -13,4 +13,5 @@ pyinstaller -F -w py2exe.spec
 
 if %errorlevel%==0 (
     xcopy %PyqtPlatformsFolder%\platforms %BinFolder%\platforms\ /c/q/e
+    xcopy %PyqtPlatformsFolder%\imageformats %BinFolder%\imageformats\ /c/q/e
 )

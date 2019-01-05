@@ -1,0 +1,7 @@
+*.pyc
+*.dll
+*.exe
+*.pkg
+*.toc
+*.zip
+*.manifest
